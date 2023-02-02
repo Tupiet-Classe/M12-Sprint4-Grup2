@@ -12,7 +12,7 @@ const app = createApp({})
 
 app.component('andrei-prova', Prueba)
 
-app.component('perfil-andrei', Perfil)
+app.component('perfil', Perfil)
 
 
 app.mount("#app")
