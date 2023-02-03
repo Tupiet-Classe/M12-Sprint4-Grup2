@@ -1,31 +1,21 @@
 <!-- Codi de la pagina -->
 <template>
-    <div class="tot">
+
     <div class="titul">
         <h2>Editar perfil</h2>
     </div>
 
-    <div class="formulari-tot">
-        <form>
-            <img class="foto-perfil" src="https://www.blogdelfotografo.com/wp-content/uploads/2022/01/girasol-foto-perfil.webp" alt="">
-            <br>
-            <button>Editar foto perfil</button>
-            <br><br><br>
-
-            <div class="formulari-label">
-                <label for="nombre">Nombre: </label><br>
-                <input type="text" name="nombre" id="nombre" placeholder="Escribe tu nombre"/><br><br>
-
-                <label for="apellidos">Nombre de usuario: </label><br>
-                <input type="text" name="nom_usuario" id="nom_usuario" placeholder="Escribe tu nombre de usuario"/><br><br>
-
-                <label for="email">Presentación: </label><br>
-                <input type="text" name="presentación" id="presentación" placeholder="Presentación" required /><br><br><br>
-                <input type="submit" name="enviar" value="Enviar datos"/>
-            </div>
-        </form>
+    <div class="form-container">
+        <img class="img-perfil" src="https://profesional.semillasbatlle.com/wp-content/uploads/2020/07/semillas-oleaginosas-industriales-girasol.jpg" alt="">
+      <form>
+        <input type="text" placeholder="Nombre">
+        <input type="text" placeholder="Nombre de usuario">
+        <input type="password" placeholder="Descripción">
+        <input type="text" placeholder="Contraseña">
+        <input type="submit" value="Guardar cambios">
+      </form>
     </div>
-</div>
+
 
 </template>
 
@@ -40,22 +30,46 @@
         background-color:#ccc;
     } */
 
-    .tot{
+    .titul{
         text-align: center;
     }
-
-    .foto-perfil{
-        width: 50px;
+    .img-perfil{
+        width: 6%;
+        padding-bottom: 50px;
+        border-radius: 50%;
     }
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
 
-    .formulari-label{
-        width:250px;
-        padding:50px 50px 25px 50px;
-        border-radius:10px;
-        margin:auto;
-        background-color:#ccc;
-        text-align: center;
-    }
+      form {
+        width: 25%;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 10px;
+      }
+
+      input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+      }
 
 </style>
 
