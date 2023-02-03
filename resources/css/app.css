@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.bg-rojo {
+    background: rgb(198, 80, 54);
+}
+
+.bg-azul {
+    background: rgb(130, 203, 212);
+}
+
+.bg-morado {
+    background: rgb(48, 30, 74);
+}
+
+
+.text-rojo {
+    color: rgb(198, 80, 54);
+}
+
+.text-azul {
+    color: rgb(130, 203, 212);
+}
+
+.text-morado {
+    color: rgb(48, 30, 74);
+}
