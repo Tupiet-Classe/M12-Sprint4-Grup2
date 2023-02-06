@@ -1,43 +1,72 @@
 <!-- Codi de la pagina -->
 <template>
 
-    <div class="titul">
-        <h2>Editar perfil</h2>
-    </div>
+    <form class="bg-white p-6 rounded-lg">
 
-    <div class="form-container">
-        <img class="img-perfil" src="https://profesional.semillasbatlle.com/wp-content/uploads/2020/07/semillas-oleaginosas-industriales-girasol.jpg" alt="">
-      <form>
-        <input type="text" placeholder="Nombre">
-        <input type="text" placeholder="Nombre de usuario">
-        <input type="password" placeholder="Descripción">
-        <input type="text" placeholder="Contraseña">
-        <input type="submit" value="Guardar cambios">
-      </form>
-    </div>
+      <div>
+        <img  class="img-perfil" src="https://profesional.semillasbatlle.com/wp-content/uploads/2020/07/semillas-oleaginosas-industriales-girasol.jpg" alt="">
+      </div>
+
+        <div class="mb-4">
+            <label class="block font-bold mb-2">
+                Nombre
+            </label>
+            <input class="w-full border border-gray-400 p-2 rounded-lg" type="text"  required>
+        </div>
 
 
+        <div class="mb-4">
+            <label class="block font-bold mb-2" for="email">
+                Nombre del usuario
+            </label>
+            <input class="w-full border border-gray-400 p-2 rounded-lg" type="text" required>
+        </div>
+
+
+        <div class="mb-6">
+            <label class="block font-bold mb-2">
+                Descripción
+            </label>
+            <input class="w-full border border-gray-400 p-2 rounded-lg" type="text" required>
+        </div>
+
+
+        <div class="mb-4">
+            <label class="block font-bold mb-2" for="email">
+                Añadir enlace
+            </label>
+            <input class="w-full border border-gray-400 p-2 rounded-lg" type="email" id="email" name="email" required>
+        </div>
+
+
+        <div class="flex items-center">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg" type="submit">
+                Guardar cambios
+            </button>
+        </div>
+    </form>
 </template>
 
 
 <!-- Estils per a esta vista -->
 <style scoped>
-    /* form{
+.img-perfil{
+        width: 25%;
+        border-radius: 50%;
+    }
+
+/* form{
         width:300px;
         padding:50px;
         border-radius:10px;
         margin:auto;
         background-color:#ccc;
-    } */
+    }
 
     .titul{
         text-align: center;
     }
-    .img-perfil{
-        width: 6%;
-        padding-bottom: 50px;
-        border-radius: 50%;
-    }
+
     .form-container {
         display: flex;
         flex-direction: column;
@@ -69,8 +98,7 @@
         background-color: #4CAF50;
         color: white;
         cursor: pointer;
-      }
-
+      } */
 </style>
 
 <!-- Scripts per a esta vista -->

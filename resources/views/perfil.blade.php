@@ -1,6 +1,6 @@
 @extends('template')
 
-@section('title', 'Andrei')
+@section('title', 'Editar perfil')
 
 @section('content')
     <h1>Pagina perfil</h1>
