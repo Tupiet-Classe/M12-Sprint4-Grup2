@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create('Follow', function (Blueprint $table) {
+            $table->comment('');
+            $table->integer('Id', true);
+            $table->integer('Id_Usuari')->nullable()->index('Id_Usuari');
+            $table->integer('Id_Seguir')->nullable()->index('Follow_ibfk_2');
         });
     }
 
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('Follow');
     }
 };
