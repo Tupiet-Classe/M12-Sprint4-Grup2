@@ -1,7 +1,7 @@
 <!-- Codi de la pagina -->
 <template>
 
-    <form class="bg-white p-6 rounded-lg">
+<form class="bg-white p-6 rounded-lg">
 
       <div>
         <img  class="img-perfil" src="https://profesional.semillasbatlle.com/wp-content/uploads/2020/07/semillas-oleaginosas-industriales-girasol.jpg" alt="">
