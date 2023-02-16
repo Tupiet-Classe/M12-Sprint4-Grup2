@@ -2,7 +2,7 @@
 <template>
     <div class="pt-5 posts w-full sm:w-96 flex flex-col items-center gap-3 overflow-y-scroll">
         <form class="content bg-white w-full mx-5 p-3 rounded-lg flex flex-col text-sm relative">
-            <div>
+            <div class="flex flex-col items-center">
                 <img class="img-perfil"
                     src="https://profesional.semillasbatlle.com/wp-content/uploads/2020/07/semillas-oleaginosas-industriales-girasol.jpg"
                     alt="">
