@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Publicacio;
+use App\Models\Publication;
 use Illuminate\Support\Facades\Http;
 
-class PublicacioController extends Controller
+class PublicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,11 @@ class PublicacioController extends Controller
      */
     public function index()
     {
-        //
+        return Publication::all()->where('user_id', '=', 1);
     }
 
     public function get_posts() {
-        return Publicacio::all()->where('user_id', '=', 1);
+        return Publication::all()->where('user_id', '=', 1);
         $data = [];
         return Http::get('http://localhost/api', ['reference' => 'ujhygtrfes' ]);
         // foreach ($posts as $key => $post) {
@@ -51,7 +51,7 @@ class PublicacioController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Publicacio();
+        $post = new Publication();
         $post->image = $request->input('image');
         $post->comment = $request->input('comment');
         $post->user_id = $request->input('user_id');

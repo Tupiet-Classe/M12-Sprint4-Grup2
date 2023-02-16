@@ -4,20 +4,21 @@
         <form class="content bg-white w-full mx-5 p-3 rounded-lg flex flex-col text-sm relative">
             <div class="flex flex-col items-center">
                 <img class="img-perfil"
-                    src="https://profesional.semillasbatlle.com/wp-content/uploads/2020/07/semillas-oleaginosas-industriales-girasol.jpg"
+                    v-bind:src="users.avatar"
                     alt="">
             </div>
             <div class="content bg-cyan w-full p-3 rounded-lg flex flex-col text-sm relative">
                 <label class="block font-bold mb-2" for="email">
                     Nombre del usuario
                 </label>
-                <input class="w-full border border-gray-400 p-2 rounded-lg" type="text">
+                <input class="w-full border border-gray-400 p-2 rounded-lg" type="text" v-bind:value="users.username">
             </div>
             <div class="mt-5 content bg-cyan w-full p-3 rounded-lg flex flex-col text-sm relative">
                 <label class="block font-bold mb-2">
                     Descripción
                 </label>
-                <input class="w-full border border-gray-400 p-2 rounded-lg" type="text">
+                <textarea class="w-full border border-gray-400 p-2 rounded-lg" type="text" v-bind:value="users.bibliografy">
+                </textarea>
             </div>
         </form>
         <div class="posts w-full sm:w-96 flex flex-col items-center gap-3 overflow-y-scroll">
@@ -46,9 +47,7 @@
                 </div>
 
                 <div class="content bg-cyan w-full mx-5 p-3 rounded-lg flex flex-col text-sm relative">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus perferendis officiis eos est neque
-                        modi explicabo commodi asperiores, delectus laboriosam. Numquam asperiores quod fugit odio obcaecati
-                        quae autem molestias deserunt!</p>
+                    <input type="text" v-bind:value="posts_data.comment">
                     <div class="topics mt-2 flex flex-wrap gap-2">
                         <span class="topic bg-red py-1 px-2 rounded-xl text-white w-fit">
                             #hello-world
@@ -71,6 +70,38 @@
     </div>
 </template>
 
+<!-- Scripts per a esta vista -->
+<script>
+import axios from 'axios';
+import swal from 'sweetalert';
+
+export default {
+    mounted() {
+        this.getUsers()
+        this.getPostsData()
+        this.getPosts()
+    },
+    data() {
+        return {
+            users: [],
+            posts_data: [],
+            posts: [],
+        }
+    },
+    methods: {
+        getUsers() {
+            axios.get('user-data').then(res => {
+                this.users = res.data;
+            });
+        },
+        getPostsData() {
+            axios.get('post-data').then(res => {
+                this.posts_data = res.data;
+            });
+        },
+    }
+}
+</script>
 
 <!-- Estils per a esta vista -->
 <style scoped>
@@ -124,8 +155,3 @@
         cursor: pointer;
       } */
 </style>
-
-<!-- Scripts per a esta vista -->
-<script>
-
-</script>
