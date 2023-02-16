@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('type_users', function (Blueprint $table) {
+        Schema::create('publications', function (Blueprint $table) {
             $table->id();
-            $table->enum('type_user', ['client','admin'])->default('client');
+            $table->string('image')->nullable();
+            $table->string('comment', 150)->nullable();
+            $table->foreignId('publication_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->date('censored')->nullable()->default(null);
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_users');
+        Schema::dropIfExists('publications');
     }
 };
