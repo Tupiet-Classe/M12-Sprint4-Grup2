@@ -24,3 +24,7 @@ Route::get('/andrei', function () {
 Route::get('/perfil', function () {
     return view('perfil');
 });
+
+Route::get('/my', function() {
+    return view('wall_personal');
+});

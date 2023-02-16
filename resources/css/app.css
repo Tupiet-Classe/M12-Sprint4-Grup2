@@ -3,27 +3,36 @@
 @tailwind utilities;
 
 
-.bg-rojo {
-    background: rgb(198, 80, 54);
+::-webkit-scrollbar {
+    display: none;
+}
+:root {
+    --red: rgb(198, 80, 54);
+    --cyan: rgb(130, 203, 212);
+    --purple: rgb(48, 30, 74);
+    --viewport-height: 100%;
 }
 
-.bg-azul {
-    background: rgb(130, 203, 212);
+html {
+    box-sizing: border-box;
 }
 
-.bg-morado {
-    background: rgb(48, 30, 74);
+.text-red {
+    color: var(--red);
+}
+.text-cyan {
+    color: var(--cyan);
+}
+.text-purple {
+    color: var(--purple);
 }
 
-
-.text-rojo {
-    color: rgb(198, 80, 54);
+.bg-red {
+    background: var(--red);
 }
-
-.text-azul {
-    color: rgb(130, 203, 212);
+.bg-cyan {
+    background: var(--cyan);
 }
-
-.text-morado {
-    color: rgb(48, 30, 74);
+.bg-purple {
+    background: var(--purple);
 }
