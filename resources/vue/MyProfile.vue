@@ -8,28 +8,20 @@
                     alt="">
             </div>
             <div class="content bg-cyan w-full p-3 rounded-lg flex flex-col text-sm relative">
-                <label class="block font-bold mb-2" for="email">
-                    Nombre del usuario
-                </label>
-                <input class="w-full border border-gray-400 p-2 rounded-lg" type="text" v-bind:value="users.username">
-            </div>
-            <div class="mt-5 content bg-cyan w-full p-3 rounded-lg flex flex-col text-sm relative">
-                <label class="block font-bold mb-2">
-                    Descripción
-                </label>
-                <textarea class="w-full border border-gray-400 p-2 rounded-lg" type="text" v-bind:value="users.bibliografy">
+                <input class="bg-transparent w-full border border-transparent p-2 rounded-lg font-bold" type="text" v-bind:value="users.username">
+                <textarea class="bg-transparent w-full border border-transparent p-2 rounded-lg" type="text" v-bind:value="users.bibliografy">
                 </textarea>
             </div>
         </form>
         <div class="posts w-full sm:w-96 flex flex-col items-center gap-3 overflow-y-scroll">
-            <div class="post flex flex-col gap-y-3 items-center bg-white rounded-md p-4">
+            <div class="post flex flex-col gap-y-3 items-center bg-white rounded-md p-4" v-for="post in posts_data" :key="post.id">
                 <div class="info bg-cyan w-full mx-5 p-3 rounded-lg flex flex-row gap-y-3">
                     <div class="user-image w-16">
-                        <img src="demo_img/bot.png" alt="logo">
+                        <img v-bind:src="users.avatar" alt="logo">
                     </div>
                     <div class="other-content w-full flex justify-between">
                         <div class="user-info flex flex-col h-full justify-around ml-4 gap-y-1">
-                            <span class="username text-sm font-comfortaa font-semibold">@tupiet</span>
+                            <span class="username text-sm font-comfortaa font-semibold">@{{users.username}}</span>
                             <button class="btn-follow bg-purple rounded-xl py-0.5 px-4 text-white">Seguir</button>
                         </div>
 
@@ -42,12 +34,12 @@
 
                 <div class="images w-full mx-5 mt-1">
                     <div class="image w-full">
-                        <img src="demo_img/landscape.jpg" alt="image" class="rounded-md">
+                        <img v-bind:src="post.image" alt="image" class="rounded-md">
                     </div>
                 </div>
 
                 <div class="content bg-cyan w-full mx-5 p-3 rounded-lg flex flex-col text-sm relative">
-                    <input type="text" v-bind:value="posts_data.comment">
+                    <p>{{ post.comment }}</p>
                     <div class="topics mt-2 flex flex-wrap gap-2">
                         <span class="topic bg-red py-1 px-2 rounded-xl text-white w-fit">
                             #hello-world
