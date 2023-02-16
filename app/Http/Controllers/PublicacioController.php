@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorePublicacioRequest;
-use App\Http\Requests\UpdatePublicacioRequest;
+use Illuminate\Http\Request;
 use App\Models\Publicacio;
+use Illuminate\Support\Facades\Http;
 
 class PublicacioController extends Controller
 {
@@ -18,69 +18,44 @@ class PublicacioController extends Controller
         //
     }
 
+    public function get_posts() {
+        return Publicacio::all()->where('user_id', '=', 1);
+        $data = [];
+        return Http::get('http://localhost/api', ['reference' => 'ujhygtrfes' ]);
+        // foreach ($posts as $key => $post) {
+        //     $data[$key] = $post;
+        //     $request = ['reference' => $post->comment];
+        //     $comment = Http::get('http://localhost/api');
+        //     return $comment->body();
+        // }
+        // return $data;
+    }
+
+    // Aquest mètode intenta simular el que faria l'api de MirMeet
+    public function get_data_from_reference(Request $request) {
+        if ( is_null($request->reference) ) return 'no';
+        $data = [
+            'ujhygtrfes' => 'image1',
+            'sertfyhuiolp' => 'image2',
+            'gtfr' => 'This is a post!',
+            'rftgyujiolp' => 'Post amazing!',
+            'esdrfgyjkl' => 'base64:/gyhuji'
+        ];
+        return $data[$request->reference];
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function store(Request $request)
     {
-        //
+        $post = new Publicacio();
+        $post->image = $request->input('image');
+        $post->comment = $request->input('comment');
+        $post->user_id = $request->input('user_id');
+        $post->save();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePublicacioRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePublicacioRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Publicacio  $publicacio
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Publicacio $publicacio)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Publicacio  $publicacio
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Publicacio $publicacio)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePublicacioRequest  $request
-     * @param  \App\Models\Publicacio  $publicacio
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePublicacioRequest $request, Publicacio $publicacio)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Publicacio  $publicacio
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Publicacio $publicacio)
-    {
-        //
-    }
 }

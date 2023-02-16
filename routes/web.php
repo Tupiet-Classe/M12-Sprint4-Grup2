@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PublicacioController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,7 @@ Route::get('/perfil', function () {
 Route::get('/my', function() {
     return view('wall_personal');
 });
+
+Route::get('/api', [PublicacioController::class, 'get_data_from_reference']);
+Route::get('/posts', [PublicacioController::class, 'get_posts']);
+Route::post('/post', [PublicacioController::class, 'store']);
