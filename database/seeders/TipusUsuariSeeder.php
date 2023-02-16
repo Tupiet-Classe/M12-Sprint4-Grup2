@@ -15,6 +15,6 @@ class TipusUsuariSeeder extends Seeder
      */
     public function run()
     {
-        TipusUsuari::factory(1)->create();
+        TipusUsuari::factory(2)->create();
     }
 }
