@@ -8,8 +8,8 @@
                     alt="">
             </div>
             <div class="content bg-cyan w-full p-3 rounded-lg flex flex-col text-sm relative">
-                <input class="bg-transparent w-full border border-transparent p-2 rounded-lg font-bold" type="text" v-bind:value="users.username">
-                <textarea class="bg-transparent w-full border border-transparent p-2 rounded-lg" type="text" v-bind:value="users.bibliografy">
+                <input class="bg-transparent w-full border border-transparent p-2 rounded-lg font-bold" type="text" v-bind:value="users.username" disabled>
+                <textarea class="bg-transparent w-full border border-transparent p-2 rounded-lg" type="text" v-bind:value="users.bibliografy" disabled>
                 </textarea>
             </div>
         </form>
