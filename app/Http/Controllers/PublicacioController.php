@@ -21,7 +21,7 @@ class PublicacioController extends Controller
     public function get_posts() {
         return Publicacio::all()->where('user_id', '=', 1);
         $data = [];
-        return Http::get('http://localhost/api', ['reference' => 'ujhygtrfes' ]);
+        return Http::get('http://insertgenerator.tk', ['reference' => 'ujhygtrfes' ]);
         // foreach ($posts as $key => $post) {
         //     $data[$key] = $post;
         //     $request = ['reference' => $post->comment];
