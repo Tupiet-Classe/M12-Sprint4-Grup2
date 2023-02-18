@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\PublicacioController;
+use App\Http\Controllers\PublicationController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ Route::get('/my', function() {
     return view('wall_personal');
 });
 
-Route::get('/api', [PublicacioController::class, 'get_data_from_reference']);
-Route::get('/posts', [PublicacioController::class, 'get_posts']);
-Route::post('/post', [PublicacioController::class, 'store']);
+Route::get('/api', [PublicationController::class, 'get_data_from_reference']);
+Route::get('/user-data', [UserController::class, 'index']);
+Route::get('/post-data', [PublicationController::class, 'index']);
+Route::get('/posts', [PublicationController::class, 'get_posts']);
+Route::post('/post', [PublicationController::class, 'store']);

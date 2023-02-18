@@ -101,7 +101,7 @@
         cursor: pointer;
       }
   </style> --}}
-    <div id="app">
-        <andrei-prova />
-    </div>
+
+    <andrei-prova />
+
 @endsection

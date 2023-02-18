@@ -47,7 +47,8 @@ class UsuariController extends Controller
      */
     public function show(Usuari $usuari)
     {
-        //
+        $listar = user::all($name, $username, $bibliografy);
+        return view("Prueba");
     }
 
     /**
