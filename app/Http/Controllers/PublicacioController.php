@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Publication;
 use Illuminate\Support\Facades\Http;
 
-class PublicationController extends Controller
+class PublicacioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,31 +15,24 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        return Publication::all()->where('user_id', '=', 1);
+        //
     }
 
     public function get_posts() {
-        $posts = Publication::all()->where('user_id', '=', 1);
+        return Publication::all()->where('user_id', '=', 2);
         $data = [];
-        
-        foreach ($posts as $key => $post) {
-            $data[$key] = $post;
-            $comment = $this->get_from_reference($post->comment);
-            $image = $this->get_from_reference($post->image);
-            $data[$key]->comment = $comment;
-            $data[$key]->image = $image;
-        }
-        return $data;   
-    }
-
-    private function get_from_reference($reference) {
-        $data = json_decode(file_get_contents(storage_path('app/references.json')), true);
-        return $data[$reference];
+        return Http::get('http://localhost/api', ['reference' => 'ujhygtrfes' ]);
+        // foreach ($posts as $key => $post) {
+        //     $data[$key] = $post;
+        //     $request = ['reference' => $post->comment];
+        //     $comment = Http::get('http://localhost/api');
+        //     return $comment->body();
+        // }
+        // return $data;
     }
 
     // Aquest mètode intenta simular el que faria l'api de MirMeet
     public function get_data_from_reference(Request $request) {
-        return 'hey';
         if ( is_null($request->reference) ) return 'no';
         $data = [
             'ujhygtrfes' => 'image1',
@@ -48,7 +41,6 @@ class PublicationController extends Controller
             'rftgyujiolp' => 'Post amazing!',
             'esdrfgyjkl' => 'base64:/gyhuji'
         ];
-        return 'hola';
         return $data[$request->reference];
     }
 

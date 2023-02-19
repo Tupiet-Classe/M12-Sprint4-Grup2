@@ -3,13 +3,16 @@
     <div class="pt-5 posts w-full sm:w-96 flex flex-col items-center gap-3 overflow-y-scroll">
         <form class="content bg-white w-full mx-5 p-3 rounded-lg flex flex-col text-sm relative">
             <div class="flex flex-col items-center">
-                <img class="img-perfil"
+                <img class="img-perfil mt-3 mb-0"
                     v-bind:src="users.avatar"
                     alt="">
+                    <span class="font-comfortaa my-3">@{{ users.username }}</span>
             </div>
             <div class="content bg-cyan w-full p-3 rounded-lg flex flex-col text-sm relative">
-                <a class="text-right" href="/perfil"><i class="fa-solid fa-user-pen"></i></a>
-                <input class="bg-transparent w-full border border-transparent p-2 rounded-lg font-bold" type="text" v-bind:value="users.username" disabled>
+                <div class="flex justify-between p-2">
+                    <span class="font-bold">Biografía</span>
+                    <a class="text-right" href="/perfil"><i class="fa-solid fa-user-pen"></i></a>
+                </div>
                 <textarea class="bg-transparent w-full border border-transparent p-2 rounded-lg" type="text" v-bind:value="users.bibliografy" disabled>
                 </textarea>
             </div>
@@ -43,10 +46,10 @@
                     <p>{{ post.comment }}</p>
                     <div class="topics mt-2 flex flex-wrap gap-2">
                         <span class="topic bg-red py-1 px-2 rounded-xl text-white w-fit">
-                            #hello-world
+                            #photography
                         </span>
                         <span class="topic bg-red py-1 px-2 rounded-xl text-white w-fit">
-                            #test
+                            #nature
                         </span>
 
                     </div>
@@ -88,7 +91,7 @@ export default {
             });
         },
         getPostsData() {
-            axios.get('post-data').then(res => {
+            axios.get('posts').then(res => {
                 this.posts_data = res.data;
             });
         },
@@ -100,7 +103,6 @@ export default {
 <style scoped>
 .img-perfil {
     width: 25%;
-    border-radius: 50%;
 }
 
 /* form{
