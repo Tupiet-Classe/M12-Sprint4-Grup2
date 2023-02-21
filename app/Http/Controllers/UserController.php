@@ -15,7 +15,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::find(1);
+        $user = User::find(1);
+        $user->avatar = $this->get_from_reference($user->avatar);
+        return $user;
+    }
+
+    private function get_from_reference($reference) {
+        $data = json_decode(file_get_contents(storage_path('app/references.json')), true);
+        return $data[$reference];
     }
 
 }
