@@ -37,6 +37,14 @@
 
     @include('components.footer')
     @vite('resources/js/app.js')
+    <script>
+        $('body').css("max-height", $(window).outerHeight());
+        $('body').css("min-height", $(window).outerHeight());
+        $( window ).resize(function(e) {
+            $('body').css("max-height", $(window).outerHeight());
+            $('body').css("min-height", $(window).outerHeight());
+        });
+</script>
 </body>
 
 </html>

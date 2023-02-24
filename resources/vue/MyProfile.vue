@@ -1,6 +1,6 @@
 <!-- Codi de la pagina -->
 <template>
-    <div class="pt-5 posts w-full sm:w-96 flex flex-col items-center gap-3 overflow-y-scroll">
+    <div class="pt-5 posts w-full sm:w-96 flex flex-col items-center gap-3 overflow-y-scroll overflow-x-hidden">
         <form class="content bg-white w-full mx-5 p-3 rounded-lg flex flex-col text-sm relative">
             <div class="flex flex-col items-center">
                 <img class="img-perfil mt-3 mb-0"
